@@ -1,6 +1,6 @@
 from django.urls import path, include
 from django.contrib import admin
-from .views import index
+from .views import index,article
 # ou from .views import index , le point signifiant le dossier en cours 'mercadonaProject'
 
 urlpatterns = [
@@ -10,5 +10,9 @@ urlpatterns = [
     # Puisque les urls django  n'ont qu'une seule entrée et c'est à partir des setting de notre projet donc il faudra  inclure avec include un path pour les urls de notre appli dans  les urls de notre projet'
     path('blog/', include("blog.urls")),
     path('admin/', admin.site.urls),
+    # important que ça soit str au lieu de int car le chiffre précédé de 0 va être considéré comme string
+    # sinon on pouvait mettre int mais il y aurait pas de 0 avant le numéro
+    path('article-<str:numero_article>', article, name="blog-article")
+
     # path('Bonjour/', server_error) ligne pour expliquer l'importance du / et la redirection auto gràce à APPEND_SLASH en true
 ]
