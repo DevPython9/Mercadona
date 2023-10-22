@@ -5,6 +5,11 @@
     <title>Mercado</title>
 </head>
 <body>
-<h1>Bonjour et bienvenue sur Mercado</h1>
+<!--Le filtre pipe | va nous permettre de stylyser par exple le prenom en majuscule ici -->
+<h1>Bonjour et bienvenue sur Mercado Monsieur {{prenom | upper}}</h1>
+<h2>Nous sommes le {{date_du_Jour}}</h2>
+<!-- On pouvait formater la date à partir du view aussi. Ca explique la flexibilité de ce framework -->
+<!--Taper django template filter vous aller tomber sur le site avec les différents formatage et l'heure-->
+<h2>Nous sommes le {{date_du_Jour|date:"d F Y H:i:s"}}</h2>
 </body>
 </html>
